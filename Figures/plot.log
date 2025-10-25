@@ -1,0 +1,99 @@
+
+=== Cutoff = 360 days ===
+CV   R²   = 0.488 ± 0.022
+CV RMSE   = 12.973 ± 0.276
+CV MAE    = 8.523 ± 0.164
+Hold-out R²   = 0.515
+Hold-out RMSE = 12.397
+Hold-out MAE  = 8.219
+
+Δ(gen_vote_pct) ≈ -1.6020 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 360d) = -0.002
+
+=== Cutoff = 240 days ===
+CV   R²   = 0.538 ± 0.026
+CV RMSE   = 13.336 ± 0.328
+CV MAE    = 8.970 ± 0.176
+Hold-out R²   = 0.532
+Hold-out RMSE = 13.452
+Hold-out MAE  = 9.051
+
+Δ(gen_vote_pct) ≈ -0.4596 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 240d) = -0.001
+
+=== Cutoff = 120 days ===
+CV   R²   = 0.502 ± 0.212
+CV RMSE   = 14.837 ± 2.851
+CV MAE    = 9.377 ± 0.256
+Hold-out R²   = 0.140
+Hold-out RMSE = 19.982
+Hold-out MAE  = 9.695
+
+Δ(gen_vote_pct) ≈ 1.7413 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 120d) = 0.010
+
+=== Cutoff = 60 days ===
+CV   R²   = 0.599 ± 0.086
+CV RMSE   = 13.742 ± 1.371
+CV MAE    = 9.214 ± 0.203
+Hold-out R²   = 0.522
+Hold-out RMSE = 15.178
+Hold-out MAE  = 9.454
+
+Δ(gen_vote_pct) ≈ 2.1688 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 60d) = 0.020
+
+=== Cutoff = 30 days ===
+CV   R²   = 0.659 ± 0.023
+CV RMSE   = 12.855 ± 0.393
+CV MAE    = 8.817 ± 0.159
+Hold-out R²   = 0.655
+Hold-out RMSE = 12.945
+Hold-out MAE  = 8.888
+
+Δ(gen_vote_pct) ≈ 0.9290 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 30d) = 0.015
+
+=== Cutoff = 14 days ===
+CV   R²   = 0.680 ± 0.023
+CV RMSE   = 12.514 ± 0.467
+CV MAE    = 8.693 ± 0.147
+Hold-out R²   = 0.695
+Hold-out RMSE = 12.180
+Hold-out MAE  = 8.583
+
+Δ(gen_vote_pct) ≈ -0.1927 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 14d) = -0.004
+
+=== Cutoff = 7 days ===
+CV   R²   = 0.681 ± 0.014
+CV RMSE   = 12.527 ± 0.312
+CV MAE    = 8.716 ± 0.197
+Hold-out R²   = 0.690
+Hold-out RMSE = 12.396
+Hold-out MAE  = 8.631
+
+Δ(gen_vote_pct) ≈ -0.2785 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 7d) = -0.007
+
+=== Cutoff = 1 days ===
+CV   R²   = 0.692 ± 0.013
+CV RMSE   = 12.318 ± 0.258
+CV MAE    = 8.670 ± 0.125
+Hold-out R²   = 0.693
+Hold-out RMSE = 12.322
+Hold-out MAE  = 8.728
+
+Δ(gen_vote_pct) ≈ -0.2302 pp per $1M total (avg mix)
+------------------------------------------------------------
+Elasticity (cutoff 1d) = -0.006
+
+All cutoffs processed.
+Finished writing GAM tables.
