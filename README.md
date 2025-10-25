@@ -1,5 +1,5 @@
 # quantifying-roi-of-campaign-contributions
-### May 2025 -- July 2025
+### May 2025 - July 2025
 
 Throughout ECO 6935 and ECO 6936 (Capstone in Business Analytics I and II), I produced quantifiable results regarding a U.S. House candidate's probability of winning and expected vote share given the magnitude, timing, and composition of donations. This involved reading previous research; understanding microeconomic, public choice, political science, and institutional theories; filtering, cleaning, and adjusting a dataset consisting of over 850 million observations; performing visual analysis; aggregating contribution data based on 'date before the election' (an automated process); fitting logistic regression models, logistic generalized additive models, ordinary least squares regression models, and linear generalized additive models; and reporting and interpreting the results.
 
