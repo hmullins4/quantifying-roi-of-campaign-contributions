@@ -1,0 +1,328 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./HEMullins-Paper.tex
+LaTeX2e <2017-04-15>
+Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/palatino.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu))) (./enumitem.sty)
+(./setspace.sty) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty) (./titling.sty)
+(./chicago.sty
+Using Chicago Manual of Style bibliography: 31 August 1992
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+No file HEMullins-Paper.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
+(./Intro.tex
+
+LaTeX Warning: Citation `buckley1976' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `citizensunited2010' on page 1 undefined on input line 
+3.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+
+LaTeX Warning: Citation `mccutcheon2014' on page 1 undefined on input line 3.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.7 ...nning and expected vote share?} \end{quote}
+                                                   In the following section,...
+[1]) (./Lit_Review.tex
+
+LaTeX Warning: Citation `jacobson1978' on page 2 undefined on input line 3.
+
+
+LaTeX Warning: Citation `levitt1994' on page 2 undefined on input line 5.
+
+[2]
+
+LaTeX Warning: Citation `groseclose1996' on page 3 undefined on input line 7.
+
+
+LaTeX Warning: Citation `jacobson2004' on page 3 undefined on input line 9.
+
+) (./Theory.tex
+
+LaTeX Warning: Citation `jacobson1983' on page 3 undefined on input line 3.
+
+
+LaTeX Warning: Citation `Levin2004' on page 3 undefined on input line 3.
+
+[3]
+
+LaTeX Warning: Citation `becker1983' on page 4 undefined on input line 5.
+
+
+LaTeX Warning: Citation `downs2024' on page 4 undefined on input line 7.
+
+
+LaTeX Warning: Citation `lupia2021' on page 4 undefined on input line 7.
+
+
+LaTeX Warning: Citation `stratmann2005' on page 4 undefined on input line 9.
+
+[4]) (./Data.tex
+
+LaTeX Warning: Citation `bonica2024' on page 5 undefined on input line 3.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd) [5]
+Overfull \hbox (4.53831pt too wide) in paragraph at lines 11--12
+[]\OT1/ppl/m/n/12 Variable prun-ing re-tains nine-teen candidate-table fields: 
+\OT1/pcr/m/n/12 bonica[]rid, bonica[]cid, 
+
+Overfull \hbox (1.12485pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/12 total[]disbursements, total[]receipts, total[]indiv[]contribs, 
+gwinner, 
+
+Overfull \hbox (9.08087pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/12 total[]party[]contribs, ind[]exp[]support, ind[]exp[]oppose [] 
+gen[]vote[]pct\OT1/ppl/m/n/12 .
+
+Overfull \hbox (0.90674pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/12 contributor[]type, is[]corp, [] election[]type\OT1/ppl/m/n/12 .
+ All other columns within these
+
+Overfull \hbox (3.89214pt too wide) in paragraph at lines 15--16
+\OT1/ppl/m/n/12 ac-cord-ingly, com-puted each con-tri-bu-tion's \OT1/pcr/m/n/12
+ days[]before \OT1/ppl/m/n/12 (days be-tween con-tri-bu-tion date
+
+LaTeX Warning: Reference `fig:dist' on page 6 undefined on input line 19.
+
+[6]
+
+LaTeX Warning: Reference `fig:trend' on page 7 undefined on input line 28.
+
+) (./Specs.tex
+Overfull \hbox (3.57968pt too wide) in paragraph at lines 5--6
+\OT1/ppl/m/n/12 corporate-committee, and corporate-committee con-tri-bu-tions, 
+re-spec-tively); \OT1/pcr/m/n/12 num[]givers\OT1/ppl/m/n/12 ;
+
+Overfull \hbox (5.01253pt too wide) in paragraph at lines 5--6
+\OT1/pcr/m/n/12 total[]receipts\OT1/ppl/m/n/12 ; \OT1/pcr/m/n/12 ind[]exp[]supp
+ort\OT1/ppl/m/n/12 ; \OT1/pcr/m/n/12 ind[]exp[]oppose\OT1/ppl/m/n/12 ; \OT1/pcr
+/m/n/12 party \OT1/ppl/m/n/12 dum-mies; \OT1/pcr/m/n/12 ico[]status
+[7 <../Figures/amount_dist.pdf>] [8 <../Figures/cycle_spending_trend.pdf>]
+[9]) (./Results.tex [10]
+
+LaTeX Warning: Reference `tab:log-roi' on page 11 undefined on input line 5.
+
+
+LaTeX Warning: Reference `tab:log-type-roi' on page 11 undefined on input line 
+5.
+
+(../Tables/log_roi.tex) (../Tables/log_type_roi.tex) [11]
+
+LaTeX Warning: Reference `fig:roi-year' on page 12 undefined on input line 21.
+
+[12 <../Figures/roi_over_time.pdf>]
+
+LaTeX Warning: Reference `tab:gam-log-roi' on page 13 undefined on input line 3
+4.
+
+
+LaTeX Warning: Reference `tab:gam-log-type-roi' on page 13 undefined on input l
+ine 34.
+
+(../Tables/log_gam_roi.tex) (../Tables/log_gam_type_roi.tex)
+
+LaTeX Warning: Reference `tab:lin-roi' on page 13 undefined on input line 54.
+
+[13] (../Tables/lin_roi.tex)
+
+LaTeX Warning: Reference `fig:feat-importance' on page 14 undefined on input li
+ne 63.
+
+
+LaTeX Warning: Reference `fig:heatmap' on page 14 undefined on input line 63.
+
+[14 <../Figures/feat_imp.pdf>]
+
+LaTeX Warning: Reference `tab:gam-lin-metrics' on page 15 undefined on input li
+ne 83.
+
+(../Tables/lin_gam_cv.tex) [15 <../Figures/sig_heatmap.pdf>])
+(./Interpretation.tex
+
+LaTeX Warning: Reference `fig:roi-year' on page 16 undefined on input line 7.
+
+[16]
+
+LaTeX Warning: Citation `bonica2016' on page 17 undefined on input line 9.
+
+
+LaTeX Warning: Reference `fig:roi-year' on page 17 undefined on input line 13.
+
+[17]
+
+LaTeX Warning: Reference `fig:gam-or' on page 18 undefined on input line 21.
+
+
+LaTeX Warning: Citation `fec_communications' on page 18 undefined on input line
+ 21.
+
+
+LaTeX Warning: Citation `congress_plaw' on page 18 undefined on input line 21.
+
+
+LaTeX Warning: Citation `schedule' on page 18 undefined on input line 21.
+
+[18] [19]) (./Limitations.tex [20]
+
+LaTeX Warning: Reference `fig:gam-or' on page 21 undefined on input line 7.
+
+[21]
+
+LaTeX Warning: Reference `fig:heatmap' on page 22 undefined on input line 11.
+
+) (./Conclusion.tex [22] [23]
+
+LaTeX Warning: Reference `fig:gam-or' on page 24 undefined on input line 25.
+
+
+Overfull \hbox (9.38771pt too wide) in paragraph at lines 29--30
+\OT1/ppl/m/n/12 maximizing agent seek-ing to max-i-mize its net ex-pected pay-o
+ff from vic-tory mi-nus fundrais-
+[24]
+Overfull \hbox (1.86087pt too wide) in paragraph at lines 31--32
+[]\OT1/ppl/m/n/12 Campaigns choose how much to raise (and equiv-a-lently to spe
+nd) over the pre-election
+
+LaTeX Warning: Citation `tullock1980' on page 25 undefined on input line 45.
+
+[25] [26]
+
+LaTeX Warning: Citation `bayes' on page 27 undefined on input line 71.
+
+
+Overfull \hbox (4.68297pt too wide) in paragraph at lines 81--82
+[]\OT1/ppl/m/n/12 Asymmetries (in-cum-bency, base-line name recog-ni-tion) can 
+be mod-eled via a ``starter-
+[27] [28] [29]) (./AppendixA.tex [30] [31] [32] [33] [34] [35] [36] [37]
+[38]) (./AppendixB.tex [39] [40]
+Overfull \hbox (22.46648pt too wide) in paragraph at lines 43--44
+[]\OT1/pcr/m/n/12 avg[]tx[]freq\OT1/ppl/m/n/12 : Av-er-age trans-ac-tion type f
+re-quency. Cal-cu-lated us-ing \OT1/pcr/m/n/12 tran-sac-tion[]type
+) (./AppendixC.tex
+
+LaTeX Warning: Reference `tab:log-metrics' on page 41 undefined on input line 3
+.
+
+(../Tables/log_metrics.tex) [41]
+
+LaTeX Warning: Reference `fig:log-roc' on page 42 undefined on input line 12.
+
+
+LaTeX Warning: Reference `fig:roi-beta' on page 42 undefined on input line 21.
+
+
+LaTeX Warning: Reference `fig:roi-year' on page 42 undefined on input line 21.
+
+[42 <../Figures/log_roc.pdf>]
+
+LaTeX Warning: Reference `tab:gam-log-metrics' on page 43 undefined on input li
+ne 30.
+
+(../Tables/log_gam_metrics.tex)
+
+LaTeX Warning: Reference `fig:gam-or' on page 43 undefined on input line 39.
+
+[43 <../Figures/roi_beta_over_time.pdf>]
+
+LaTeX Warning: Reference `fig:gam-roc' on page 44 undefined on input line 48.
+
+
+LaTeX Warning: Reference `tab:ols-metrics' on page 44 undefined on input line 5
+7.
+
+
+LaTeX Warning: Reference `tab:reg-r2' on page 44 undefined on input line 57.
+
+[44 <../Figures/gam_roi_over_time.pdf> <../Figures/gam_log_roc.pdf>]
+(../Tables/lin_metrics.tex) (../Tables/reg_r2.tex)
+
+LaTeX Warning: Reference `tab:ho-metrics' on page 45 undefined on input line 75
+.
+
+(../Tables/lin_gam_ho.tex) [45] (../Tables/log_e.tex) (../Tables/log_gam_e.tex)
+[46] (../Tables/lin_e.tex) (../Tables/lin_gam_e.tex) [47] [48 <../Figures/elast
+icity_over_time.pdf> <../Figures/norm_elast_over_time.pdf>] [49 <../Figures/gam
+_elasticity_over_time.pdf> <../Figures/gam_norm_elast_over_time.pdf>])
+No file HEMullins-Paper.bbl.
+(./HEMullins-Paper.aux)
+
+Package rerunfilecheck Warning: File `HEMullins-Paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information){/usr/share/texlive/texmf-d
+ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr
+o8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on HEMullins-Paper.pdf (50 pages, 491090 bytes).
+Transcript written on HEMullins-Paper.log.

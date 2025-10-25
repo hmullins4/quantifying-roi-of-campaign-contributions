@@ -1,0 +1,304 @@
+\makeatletter
+\def\input@path{{./}}
+\makeatother
+
+\documentclass[12pt]{article}
+\usepackage{palatino}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{setspace}      % For double-spacing
+
+% Manual margin settings (replace geometry)
+\setlength{\topmargin}{-0.54in}               
+\setlength{\headheight}{12pt}             
+\setlength{\headsep}{20pt}                
+\setlength{\textheight}{9in}              
+\setlength{\textwidth}{6.5in}             
+\setlength{\oddsidemargin}{0pt}           
+\setlength{\evensidemargin}{0pt}          
+
+% Set PDF page size (for pdfLaTeX)
+\pdfpagewidth=8.5in
+\pdfpageheight=11in
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{titling}
+\usepackage{chicago}
+\setlength{\droptitle}{-2cm}
+
+\usepackage[breaklinks=true, colorlinks=true, urlcolor=black, linkcolor=black]{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+\title{ECO 6935 Outline: Quantifying the Return on Investment (ROI) of Campaign Contributions}
+\author{Hope Mullins}
+\date{June 3, 2025}
+
+\begin{document}
+
+
+\maketitle
+
+\doublespacing
+
+\section*{I. Introduction:} Given various legislative changes over the past $50$ years, the influence of money in political elections has become increasingly prominent.
+  \begin{enumerate}[label = \Alph*.]
+    \item \textit{Buckley v. Valeo}
+    \begin{enumerate}[label=\arabic*)]
+        \item Contribution limits were found to be a restriction of political speech, but those restrictions were considered necessary.
+        \item However, the Court determined that overall expenditure limits violated the First Amendment's protection of political speech.
+    \end{enumerate}
+    
+    \item \textit{Citizens United v. FEC}
+    \begin{enumerate}[label=\arabic*)]
+        \item The Supreme Court overruled two previous decisions, ultimately establishing that independent spending by corporations does not produce corruption, leading to a surge of Super PAC and dark money spending.
+        \item Mixed reactions followed; even today, there is significant controversy surrounding this decision. 
+    \end{enumerate}
+    
+    \item \textit{McCutcheon v. FEC}
+    \begin{enumerate}[label=\arabic*)]
+        \item The Supreme Court pronounced that, under the First Amendment, biennial aggregate limits are unconstitutional, striking down the previous limit for individual contributions to federal candidates, parties, and PACs.
+    \end{enumerate}
+    
+    \item Relevance
+    \begin{enumerate}[label=\arabic*)]
+        \item Interest groups lack reliable ROI estimates that convert dollars into votes.
+        \item From a business standpoint, understanding this relationship could serve campaign strategists, consultancies, and both corporate and nonprofit donors.
+        \item Voters may be interested in knowing what organizations back a political candidate, anticipating policy outcomes, and making more informed decisions.
+    \end{enumerate}
+
+    \item Proposed Question and Following Sections
+    \begin{enumerate}[label=\arabic*)]
+        \item Although money does not guarantee a candidate's success in being elected, it does greatly affect competitiveness.
+        \item Therefore, the question quantitatively answered through this project is: How do the magnitude and composition of campaign contributions affect a candidate's probability of winning (and vote share)?
+        \item Describe the sections that follow here.
+    \end{enumerate}
+  \end{enumerate}
+  
+\section*{II. Theoretical Framework:} The role of campaign finance in U.S. House elections can be broken down and interpreted through various theoretical lenses. (Note: The theories mentioned below are all intertwined/relevant, but I may not describe them all in the final paper).
+    
+  \begin{enumerate}[label=\Alph*.]
+    \item Microeconomic Theory
+
+    \begin{enumerate}[label=\arabic*)]
+        \item Production function models treat campaign contributions as inputs in a "political factory," giving us a structural way to think about how money turns into political outcomes.
+        \item Marginal analysis asks how increasing campaign spending by a little affects the likelihood of a candidate winning (or how many more votes they will receive).
+        \item Public choice theory assumes here that politicians act in their own self-interest.
+        \begin{enumerate}[label=\alph*)]
+            \item Rent-seeking, a key concept within public choice theory, describes how individuals/groups expend resources to gain economic advantages through political means rather than productive activity.
+            \item Under this framework, campaign contributions are investments.
+            \item Firms behaving rationally would not pour money into a campaign unless they expect a positive return, which in this case comes in the form of their preferred politicians winning and delivering on favorable policy outcomes.
+        \end{enumerate}
+    \end{enumerate}
+    
+    \item Political Science Theory
+
+    \begin{enumerate}[label=\arabic*)]
+        \item Spatial utility theory says that voters choose candidates who align most closely with their own preferences on an ideological spectrum.
+
+        \begin{enumerate}[label=\alph*)]
+            \item If more money allows a candidate to better communicate their position, then spending influences where voters think that candidate stands.
+        \end{enumerate}
+
+        \item Persuasion theory: campaigns don't just activate voters, they shape what voters care about.        
+    \end{enumerate}
+
+    
+    \item Institutional Theory
+
+    \begin{enumerate}[label=\arabic*)]
+        \item Regulatory impact theory helps us understand how legal structures change not just the amount of money in politics, but the incentives and strategies of political actors.
+    \end{enumerate}
+
+    \item Game Theory (Ties in With Rent-Seeking)
+    
+    \begin{enumerate}[label=\arabic*)]
+      \item In political‐economy terms, a campaign can be thought of as an “all‐pay auction” in which every dollar spent is effectively a sunk bid, and the “prize” goes only to the candidate who raises/expends the most effective dollars. 
+  \end{enumerate}
+\end{enumerate}
+
+  
+
+\section*{III. Literature Review:} This section summarizes key empirical and theoretical studies on how campaign contributions affect electoral outcomes, identifies gaps in estimating monetary ROI, and positions this project within that existing scholarship.
+
+\begin{enumerate}[label=\Alph*.]
+    \item Jacobson, Gary C. 1978. “The Effects of Campaign Spending in Congressional Elections.”
+    \begin{enumerate}[label=\arabic*)]
+        \item Jacobson uses regression techniques to isolate the marginal effect of dollars on electoral outcomes, which directly addresses the “dollars‐to‐votes” question I'm examining.
+    \end{enumerate}
+
+    \item Jacobson, Gary C. 2004. “Measuring Campaign Spending Effects in U.S. House Elections."
+    \begin{enumerate}[label=\arabic*)]
+        \item Updates Jacobson’s earlier work by incorporating data from the late 1990s and early 2000s, discusses new modeling approaches. Helps with seeing how the spending‐vote relationship has evolved and which econometric methods were adopted as more data became available.
+    \end{enumerate}
+
+    \item Levitt, Steven D. 1994. “Using Repeat Challengers to Estimate the Effect of Campaign Spending on Election Outcomes in the U.S. House.” 
+    \begin{enumerate}[label=\arabic*)]
+        \item Compares “repeat” challengers who run in consecutive elections to better isolate the causal impact of money (i.e., holding candidate quality more constant), going beyond simple OLS and tackling endogeneity concerns.
+    \end{enumerate}
+
+    \item Groseclose, Tim, and James M. Snyder Jr. 1996. “Buying Supermajorities.”
+    \begin{enumerate}[label=\arabic*)]
+        \item Examines whether money can “buy” large majorities (i.e., landslide victories), looking at both vote share and probability of winning a supermajority margin.
+    \end{enumerate}
+
+    \item Why Is There So Little Money in U.S. Politics? (Ansolabehere et al., 2003)
+    \begin{enumerate}[label=\arabic*)]
+        \item Reviews the empirical literature on money’s role in politics up to 2003, including both campaign spending effects and the behavior of PACs/interest groups, examines previous studies and discusses theoretical reasons why spending effects might be muted.
+    \end{enumerate}
+\end{enumerate}
+
+
+\section*{IV. Data:} This section summarizes the data source being utilized, as well as the most relevant variables and the process for filtering/cleaning the data to serve this project's purposes.
+
+  \begin{enumerate}[label=\Alph*.]
+    \item Data Source
+    \begin{enumerate}[label=\arabic*)]
+        \item The data being used for this project comes from Adam Bonica's Database on Ideology, Money in Politics, and Elections, with data ranging from 1979--2024.
+        \item Consists of three tables: cand\_DB, contrib\_DB, and donor\_DB
+        \begin{enumerate}[label=\alph*)]
+            \item The candidate table provides information on voting records, election outcomes, fundraising statistics, and other candidate characteristics (64 variables).
+            \item The contributions table includes individual transactions between a donor and recipient (45 variables).
+            \item The contributor table involves rows for individuals as well as organizational donors (43 variables).
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Key Variables (will describe in-depth in the paper)
+    \begin{enumerate}[label=\arabic*)]
+        \item Candidate table: district, ico.status, num.givers, total.receipts, total.party.contribs, cycle
+        \item Contributor table: bonica.cid, contributor.type, num.records, is.corp
+        \item Contributions table: amount, date, recipient.name, recipient.type, election.type
+    \end{enumerate}
+    
+    \item Filtering Process
+    \begin{enumerate}[label=\arabic*)]
+        \item Due to the fact that the contributions table consisted of over 850 million rows and a vast number of variables, working in Python with the sqlite3 module is an extremely time-consuming process.
+        \item Embedded within the Python application is an in-process SQL Online Analytical Processing (OLAP) database engine called DuckDB.
+        \begin{enumerate}[label=\alph*)]
+            \item Although relatively new compared to SQLite, DuckDB stores data column-by-column rather than row-by-row, making it ideal for aggregation, filtering, and scanning large datasets.
+        \end{enumerate}
+        \item Utilizing DuckDB, I now have a new database with filtered data, containing 23,379 rows within the candidate table, 97,864,851 rows within the contributions table, and 8,720,783 rows within the donor table.
+        \item Describe how I aggregate, clean, subset, and adjust (for inflation) data here.
+    \end{enumerate}
+  \end{enumerate}
+
+\section*{V. Empirical Specifications:} This section outlines the quantitative strategies used to model the relationship between campaign contributions and electoral success.
+
+\begin{enumerate}[label=\Alph*.]
+    \item Proposed Models
+    \begin{enumerate}[label=\arabic*)]
+        \item Logistic Regression For Probability of Candidate Winning
+
+\[
+\Pr\bigl(W_{i}=1 \mid S_{i},OS,\mathbf{X}_{i}\bigr)
+=\text{logit}^{-1}\bigl(\beta_{0}+\beta_{1}\log S_{i}-\beta_{2}\log OS+\boldsymbol{\beta}_{3}^{\top}\mathbf{X}_{i}\bigr),
+\]
+
+where $\beta_{0}$ is the intercept, $\beta_{1}$ and $-\beta_{2}$ capture how own and opponent spending affect log‐odds of winning, and $\mathbf{X}_i$ are other covariates with coefficients $\boldsymbol{\beta}_{3}$.
+
+        \item OLS Regression for Candidate's Vote Share
+
+\[
+\mathrm{VS}_i \;=\; \beta_{0} \;+\; \sum_{k=1}^{K} \beta_{k}\,X_{ik} \;+\; \varepsilon_i,
+\]
+
+where
+\begin{itemize}[itemsep=0.5ex]
+  \item $\mathrm{VS}_i$ is the fraction (or percentage) of votes received by candidate \(i\). 
+  \item $X_{ik}$ is the \(k\)th explanatory variable (e.g., total receipts, incumbency, number of donors, party–district fixed effects, etc.).
+  \item $\beta_{k}$ is the marginal effect of covariate \(X_{ik}\) on vote share.
+  \item $\varepsilon_i \sim (0,\sigma^2)$ is the classical error term.
+\end{itemize}
+
+
+        \item Generalized Additive Models (GAMs) for Nonlinear Effects
+
+For a continuous outcome (vote share): 
+        
+\[
+\mathrm{VS}_i 
+\;=\; 
+\beta_{0} \;+\; \sum_{j=1}^{p} s_{j}\bigl(X_{ij}\bigr) \;+\; \sum_{\ell=p+1}^{K} \beta_{\ell}\,X_{i\ell} \;+\; \varepsilon_i,
+\]
+where
+\begin{itemize}[itemsep=0.5ex]
+  \item $\beta_{0}$ is the intercept.
+  \item $s_{j}(\cdot)$ is a smooth (nonparametric) function of the continuous covariate \(X_{ij}\).
+  \item $X_{i,p+1},\dots,X_{iK}$ may include discrete or dummy variables (e.g., incumbency, party‐district fixed effects) with linear coefficients \(\beta_{p+1},\dots,\beta_{K}\),
+  \item $\varepsilon_i \sim (0,\sigma^2)$ is the error term.
+\end{itemize}
+
+For a discrete outcome (win-probability): 
+
+\[
+\Pr\bigl(\mathrm{Win}_i = 1 \mid \mathbf{X}_i \bigr)
+\;=\;
+\frac{\exp\Bigl(\beta_{0} \;+\; \sum_{j=1}^{p} s_{j}\bigl(X_{ij}\bigr) \;+\; \sum_{\ell=p+1}^{K} \beta_{\ell}\,X_{i\ell}\Bigr)}
+{1 + \exp\Bigl(\beta_{0} \;+\; \sum_{j=1}^{p} s_{j}\bigl(X_{ij}\bigr) \;+\; \sum_{\ell=p+1}^{K} \beta_{\ell}\,X_{i\ell}\Bigr)}.
+\]
+
+        \item Machine Learning Methods (time permitting)
+        \begin{enumerate}[label=\alph*)]
+            \item Random Forest
+            \item Gradient Boosting
+            \item SHAP values will be used to interpret feature importance and marginal effects.
+        \end{enumerate}
+        \end{enumerate}
+            
+
+    \item Estimation Approach
+    \begin{enumerate}[label=\arabic*)]
+      \item Logistic: estimate by maximum likelihood, report standard errors.
+      \item OLS: estimate by OLS, report standard errors; check residual diagnostics.
+      \item GAM: fit smoothing splines, choose smoothing parameters via generalized cross validation (GCV).
+      \item Random Forest \& Gradient Boosting:  
+        \begin{enumerate}[label=\alph*)]
+          \item 5‑fold cross‐validation to tune hyperparameters (trees, depth, learning rate).
+          \item Use SHAP to interpret feature importance, focusing on money‐related variables.
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Model Evaluation and Metrics
+    \begin{enumerate}[label=\arabic*)]
+      \item Logistic: AUC‑ROC, accuracy, precision/recall.
+      \item OLS/GAM: adjusted \(R^2\), RMSE.
+      \item ML methods: out‑of‑sample AUC (classification) or RMSE (regression); compare to baseline methods.
+    \end{enumerate}
+        
+
+\end{enumerate}
+
+\section*{VI. Estimation \& Results:} This section details how the methods were applied and results of the modeling process. 
+
+\begin{enumerate}[label=\Alph*.]
+    \item Estimation Methods
+    \begin{enumerate}[label=\arabic*)]
+        \item Fit logistic and OLS models  
+        \item Fit GAM via GCV; train Random Forest/Boosting with 5‑fold CV and use SHAP for interpretation
+    \end{enumerate}
+
+  \item Results
+    \begin{enumerate}[label=\arabic*)]
+      \item Report key coefficients for baseline logistic and linear regression models
+      \item Report performance metrics 
+      \item Show GAM smooth plot for nonlinear money‐vote relationship and SHAP summary for ML methods
+    \end{enumerate}
+\end{enumerate}
+
+\section*{VII. Interpretation:} This section will, based on the empirical results, discuss findings in the context of donor and voter interests.
+
+  \begin{enumerate}[label=\Alph*.]
+    \item Elaborate on results.
+    \item Address research limitations.
+    \item Discuss practical implications.
+    \item Compare with existing studies.
+  \end{enumerate}
+
+\section*{VIII. Conclusion:} Summarize findings, emphasizing the relevance of the quantitative results to both organizations and voters.
+
+\nocite{*}
+\bibliographystyle{chicago}
+\bibliography{../References/outline1}
+
+
+\end{document}

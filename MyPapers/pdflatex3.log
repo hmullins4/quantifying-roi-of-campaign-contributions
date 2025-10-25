@@ -1,0 +1,185 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./HEMullins-Paper.tex
+LaTeX2e <2017-04-15>
+Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/palatino.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu))) (./enumitem.sty)
+(./setspace.sty) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty) (./titling.sty)
+(./chicago.sty
+Using Chicago Manual of Style bibliography: 31 August 1992
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+(./HEMullins-Paper.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./HEMullins-Paper.out) (./HEMullins-Paper.out) [1{/usr/share/texlive/texmf-dis
+t/fonts/map/pdftex/updmap/pdftex.map}] (./Intro.tex
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)pdfTeX warning (ext4)
+: destination with the same identifier (name{page.1}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.7 ...nswer the following question: \begin{quote}
+                                                   \emph{How do the magnitud...
+[1]) (./Lit_Review.tex [2]) (./Theory.tex [3] [4]) (./Data.tex [5]
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd)
+Overfull \hbox (4.53831pt too wide) in paragraph at lines 11--12
+[]\OT1/ppl/m/n/12 Variable prun-ing re-tains nine-teen candidate-table fields: 
+\OT1/pcr/m/n/12 bonica[]rid, bonica[]cid, 
+
+Overfull \hbox (1.12485pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/12 total[]disbursements, total[]receipts, total[]indiv[]contribs, 
+gwinner, 
+
+Overfull \hbox (9.08087pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/12 total[]party[]contribs, ind[]exp[]support, ind[]exp[]oppose [] 
+gen[]vote[]pct\OT1/ppl/m/n/12 .
+
+Overfull \hbox (0.90674pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/12 contributor[]type, is[]corp, [] election[]type\OT1/ppl/m/n/12 .
+ All other columns within these
+
+Overfull \hbox (3.89214pt too wide) in paragraph at lines 15--16
+\OT1/ppl/m/n/12 ac-cord-ingly, com-puted each con-tri-bu-tion's \OT1/pcr/m/n/12
+ days[]before \OT1/ppl/m/n/12 (days be-tween con-tri-bu-tion date
+[6]) (./Specs.tex
+Overfull \hbox (3.57968pt too wide) in paragraph at lines 5--6
+\OT1/ppl/m/n/12 corporate-committee, and corporate-committee con-tri-bu-tions, 
+re-spec-tively); \OT1/pcr/m/n/12 num[]givers\OT1/ppl/m/n/12 ;
+
+Overfull \hbox (5.01253pt too wide) in paragraph at lines 5--6
+\OT1/pcr/m/n/12 total[]receipts\OT1/ppl/m/n/12 ; \OT1/pcr/m/n/12 ind[]exp[]supp
+ort\OT1/ppl/m/n/12 ; \OT1/pcr/m/n/12 ind[]exp[]oppose\OT1/ppl/m/n/12 ; \OT1/pcr
+/m/n/12 party \OT1/ppl/m/n/12 dum-mies; \OT1/pcr/m/n/12 ico[]status
+[7 <../Figures/amount_dist.pdf>] [8 <../Figures/cycle_spending_trend.pdf>]
+[9] [10]) (./Results.tex (../Tables/log_roi.tex) [11]
+(../Tables/log_type_roi.tex) [12] (../Tables/log_gam_roi.tex) [13 <../Figures/r
+oi_over_time.pdf>] (../Tables/log_gam_type_roi.tex) (../Tables/lin_roi.tex)
+[14] [15 <../Figures/feat_imp.pdf>] (../Tables/lin_gam_cv.tex) [16 <../Figures/
+sig_heatmap.pdf>]) (./Interpretation.tex [17] [18] [19] [20])
+(./Limitations.tex [21] [22]) (./Conclusion.tex [23] [24]
+Overfull \hbox (9.38771pt too wide) in paragraph at lines 29--30
+\OT1/ppl/m/n/12 maximizing agent seek-ing to max-i-mize its net ex-pected pay-o
+ff from vic-tory mi-nus fundrais-
+[25]
+Overfull \hbox (1.86087pt too wide) in paragraph at lines 31--32
+[]\OT1/ppl/m/n/12 Campaigns choose how much to raise (and equiv-a-lently to spe
+nd) over the pre-election
+[26] [27]
+Overfull \hbox (4.68297pt too wide) in paragraph at lines 81--82
+[]\OT1/ppl/m/n/12 Asymmetries (in-cum-bency, base-line name recog-ni-tion) can 
+be mod-eled via a ``starter-
+[28] [29] [30]) (./AppendixA.tex [31] [32] [33] [34] [35] [36] [37] [38]
+[39]) (./AppendixB.tex [40] [41]
+Overfull \hbox (22.46648pt too wide) in paragraph at lines 43--44
+[]\OT1/pcr/m/n/12 avg[]tx[]freq\OT1/ppl/m/n/12 : Av-er-age trans-ac-tion type f
+re-quency. Cal-cu-lated us-ing \OT1/pcr/m/n/12 tran-sac-tion[]type
+) (./AppendixC.tex (../Tables/log_metrics.tex) [42] [43 <../Figures/log_roc.pdf
+>] (../Tables/log_gam_metrics.tex) [44 <../Figures/roi_beta_over_time.pdf>]
+[45 <../Figures/gam_roi_over_time.pdf> <../Figures/gam_log_roc.pdf>]
+(../Tables/lin_metrics.tex) (../Tables/reg_r2.tex) (../Tables/lin_gam_ho.tex)
+[46] (../Tables/log_e.tex) (../Tables/log_gam_e.tex) [47] (../Tables/lin_e.tex)
+(../Tables/lin_gam_e.tex) [48] [49 <../Figures/elasticity_over_time.pdf> <../Fi
+gures/norm_elast_over_time.pdf>] [50 <../Figures/gam_elasticity_over_time.pdf> 
+<../Figures/gam_norm_elast_over_time.pdf>]) (./HEMullins-Paper.bbl
+Underfull \hbox (badness 2020) in paragraph at lines 47--52
+[]\OT1/ppl/m/n/12 Citizens United v. Fed-eral Elec-tion Com-mis-sion (2010). 55
+8 U.S. 310. []$\OT1/pcr/m/n/12 https :
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
+\OT1/pcr/m/n/12 / / www\OML/cmm/m/it/12 :\OT1/pcr/m/n/12 fec\OML/cmm/m/it/12 :\
+OT1/pcr/m/n/12 gov / legal -[] resources / court -[] cases / citizens -[] unite
+d -[] v -[]
+
+Underfull \hbox (badness 2237) in paragraph at lines 55--60
+[]\OT1/ppl/m/n/12 Federal Elec-tion Com-mis-sion. Mak-ing Elec-tion-eer-ing Com
+-mu-ni-ca-tions. []$\OT1/pcr/m/n/12 https :
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--60
+\OT1/pcr/m/n/12 / / www\OML/cmm/m/it/12 :\OT1/pcr/m/n/12 fec\OML/cmm/m/it/12 :\
+OT1/pcr/m/n/12 gov / help -[] candidates -[] and -[] committees / other -[] fil
+ers /
+[51]
+Underfull \hbox (badness 2042) in paragraph at lines 91--95
+[]\OT1/ppl/m/n/12 Levin, J. D. (2004). Auc-tion The-ory. []$\OT1/pcr/m/n/12 htt
+ps : / / web\OML/cmm/m/it/12 :\OT1/pcr/m/n/12 stanford\OML/cmm/m/it/12 :\OT1/pc
+r/m/n/12 edu / []jdlevin /
+
+Underfull \hbox (badness 1158) in paragraph at lines 97--102
+\OT1/ppl/m/n/12 Spend-ing on Elec-tion Out-comes in the U.S. House. \OT1/ppl/m/
+it/12 Jour-nal of Po-lit-i-cal Econ-
+
+Underfull \hbox (badness 6204) in paragraph at lines 111--116
+[]\OT1/ppl/m/n/12 McCutcheon v. Fed-eral Elec-tion Com-mis-sion (2014). 572 U.S
+. 185. []$\OT1/pcr/m/n/12 https :
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
+\OT1/pcr/m/n/12 / / www\OML/cmm/m/it/12 :\OT1/pcr/m/n/12 fec\OML/cmm/m/it/12 :\
+OT1/pcr/m/n/12 gov / legal -[] resources / court -[] cases / mccutcheon -[] et 
+-[] al -[]
+[52]) [53] (./HEMullins-Paper.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information){/usr/share/texlive/texmf-d
+ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr
+o8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on HEMullins-Paper.pdf (54 pages, 504716 bytes).
+Transcript written on HEMullins-Paper.log.

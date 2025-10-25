@@ -1,0 +1,78 @@
+\makeatletter
+\def\input@path{{./}}
+\makeatother
+
+\documentclass[12pt]{article}
+\usepackage{palatino}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{float}
+
+\setlength{\topmargin}{-0.54in}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{20pt}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+
+
+% Set PDF page size (for pdfLaTeX)
+\pdfpagewidth=8.5in
+\pdfpageheight=11in
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{titling}
+
+\usepackage{chicago}
+
+\setlength{\droptitle}{-2cm}
+\usepackage{graphicx}
+
+\usepackage[breaklinks=true, colorlinks=false, urlcolor=black, linkcolor=black, urlcolor = black]{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\DeclareUnicodeCharacter{202F}{~}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace*{1in}
+
+	{\LARGE Quantifying the Return on Investment of Campaign Contributions}\\[1.5cm]
+	{\large Hope E.\ Mullins}\\[.5cm]
+	{\large University of Central Florida}\\[.5cm]
+	{\large Department of Economics}\\[.5cm]
+	{\large 7/27/25}
+
+	\vfill
+	{\large ECO 6936}\\[.5cm]
+	{\large	Capstone in Business Analytics}\\[.5cm]
+	{\large Professor Harry Paarsch}\\[1cm]
+\end{titlepage}
+
+
+\doublespacing
+
+\newpage
+\input{Intro}
+\input{Lit_Review}
+\input{Theory}
+\input{Data}
+\input{Specs}
+\input{Results}
+\input{Interpretation}
+\input{Limitations}
+\input{Conclusion}
+\input{AppendixA}
+\input{AppendixB}
+\input{AppendixC}
+
+\nocite{*}
+\bibliographystyle{chicago}
+\bibliography{../References/Paper}
+
+
+\end{document}

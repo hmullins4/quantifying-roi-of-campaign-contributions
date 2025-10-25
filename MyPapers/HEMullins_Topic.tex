@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage{palatino}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[margin = 1in]{geometry}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[numbers]{natbib}
+
+\begin{document}
+\pagestyle{empty}
+{\noindent\bf Summer 2025  \hfill Hope E.~Mullins}
+\vskip 16pt
+\centerline{\bf University of Central Florida}
+\centerline{\bf Department of Economics}
+\vskip 16pt
+\centerline{\bf ECO 6935}
+\centerline{\bf Capstone in Business Analytics I}
+\vskip 10pt
+\centerline{\bf Topic: Quantifying the Return on Investment (ROI) of Campaign Contributions}
+\vskip 32pt
+\doublespacing
+\indent At the time of the $2020$ presidential election, I was enrolled at Valencia College in INR $2002$ (International Relations), a course that significantly changed my opinion on the importance of understanding government. Due to the election occurring at that time, I became immersed in current events and, though I was unable to vote, I learned a great deal about the U.S. voting process.
+
+\vskip 5pt
+\indent My interest in politics after these events inspired me to earn a minor in Political Science at the University of Central Florida. In some of my political science courses, I had discussions with students who felt their votes were irrelevant for a variety of reasons. Some of these reasons included the Electoral College system, collective apathy (the belief that because so many others won't vote, their own vote won't help --- somewhat of a self-fulfilling prophecy), and simply the vast amount of eligible voters (a belief that one vote will simply not change anything). However, another prominent perception among many Americans is that the current political campaign finance landscape allows substantial financial contributions to shape electoral outcomes and policy decisions, leading to much public distrust in U.S. institutions and the election process.
+
+\vskip 5pt
+\indent In the $2010$ \textit{Citizens United v. FEC} case, the Supreme Court decision permitted corporations and unions to spend unlimited funds on political campaigns, resulting in a multitude of Super PACs (political action committees) and dark money (spending by nonprofits that are not mandated to disclose their donors) groups \cite{citizensunited2010}. In fact, in the $2024$ election cycle, dark money spending almost doubled to \$$2$ billion compared to the amount spent for the $2020$ election \cite{brennancenter2024}. Moreover, outside spending amounted to around \$$3.3$ billion by 2020 and approximately \$$4.5$ billion by $2024$ --- the majority of it coming from Super PACs \cite{opensecrets2025}.  
+
+\vskip 5pt
+\indent Although money does not guarantee a candidate's success in being elected, it does greatly affect competitiveness. Therefore, the question I intend to answer through this project is:
+
+\begin{center}
+How do the magnitude and composition of campaign contributions affect a candidate's probability of winning (and vote share)?
+\end{center}
+
+Clearly, political campaigns mobilize billions in fundraising each cycle, yet firms and other interest groups lack reliable ROI estimates that convert dollars into votes. From a business standpoint, understanding this relationship could serve campaign strategists trying to optimize ad-buys, consultancies advising political donors on marginal-effectiveness, and both corporate and nonprofit donors wanting to allocate funds. Furthermore, knowing the likelihood of a candidate winning based on financial backing, as well as how the composition of donations affects vote share, might help businesses with anticipating regulatory environments or tax changes, making investment decisions, identifying which sectors back which candidates, and more. Going back to an average voter, he or she may be interested in knowing what organizations back a political candidate, anticipating policy outcomes, and making more informed decisions. Answering the proposed question will allow me to gather quantitative results, in particular the marginal effect of an additional, for example, \$$1$ million dollars on the probability of winning. Moreover, I might be able to obtain information related to how the source mix shifts expected vote share.
+
+\vskip 5pt
+\indent To complete this, I will utilize Adam Bonica's Database on Ideology, Money in Politics, and Elections (DIME, $1979-2024$), focusing on U.S. House races and using a subset of the years available. As a baseline, I shall estimate a logistic-regression model for win-probability and an OLS regression for vote share. Beyond these "glass-box" models, generalized additive models (GAMs), as well as ensemble methods (such as random forests or gradient boosting) wrapped with SHapley Additive exPlanations (SHAP), will potentially yield better performance metrics (lower mean-squared error, higher accuracy, etc.) while still providing interpretability. Altogether, these methods will generate models that would allow us to better understand the impact of political donations on election results. 
+
+\bibliographystyle{chicago}
+\bibliography{../References/Topic_References}
+
+
+\end{document}

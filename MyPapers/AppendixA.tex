@@ -1,1 +1,101 @@
+\section*{Appendices}
 
+\subsection*{Appendix A}
+
+All code, demonstrating the filtering, cleaning, adjusting for inflation, aggregation, and modeling, are documented here for full reproducibility.
+
+\subsubsection*{\tt dime\_filtered.py}
+
+As mentioned, the database being utilized in this script is the dime\_v4.sqlite3 database, found at the Database on Ideology, Money in Politics, and Elections website through Stanford University. Throughout this project, I intended to only utilize data on U.S.\ House elections. Therefore, in this initial script, I filtered the data based on this restriction and placed it in a new database for efficiency and space.
+
+I began by importing the necessary packages --- the most important being {\tt duckdb} --- and then connecting to the new database I wanted to fill ({\tt dime\_house.duckdb}). Three tables existed within the original database: {\tt candDB}, {\tt contribDB}, and {\tt donorDB}. The first I filtered using three variable requirements; I specified that {\tt seat} should equal {\tt federal:house}, {\tt cycle} (which was cast as an integer) should lie between the years 2000 and 2024, and {\tt bonica\_rid} (the unique identifier for a contribution recipient) should not be null. I placed all these observations within a new table {\tt candDB\_house}.
+
+To ensure I obtained the relevant observations from the other tables, I collected distinct {\tt bonica\_rid}s from {\tt candDB\_house} and placed these in a temporary table {\tt house\_rids}. From there, it was straightforward to filter {\tt contribDB} into {\tt contribDB\_house}; from {\tt contribDB}, I selected the observations where {\tt bonica\_rid} fell within {\tt house\_rids}, {\tt seat} was equal to {\tt federal:house}, and {\tt date} (which was cast as a date) fell between January 1, 1998 and December 31, 2024.
+
+The {\tt bonica\_cid}s are a unique contributor ID for the candidate, allowing one to join the {\tt contribDB} and {\tt donorDB} tables. Thus, I also extracted the unique {\tt bonica\_cid}s from the {\tt contribDB\_house} and placed them in a temporary table. With this, I was able to filter {\tt donorDB} into {\tt donorDB\_house} by collecting observations with the {\tt bonica\_cid}s contained in the temporary table. 
+
+Everything in this process was saved to {\tt dime\_house.duckdb}.\footnote{Since it became obsolete (for my purposes) once the final database was created, and it is quite a large file, this database is only available upon request.}
+
+\subsubsection*{\tt cleaning\_by\_variables.py}
+
+In this file, I connected to a new database {\tt dime\_house\_clean.duckdb}. To understand what variables were important for my project, I needed to observe the variables within each table.
+
+Starting with the candidate table, I found that the majority of variables simply introduced clutter; many were identifiers, metadata, redundant, or advanced ideological scores that were unrelated to my analysis. Identifiers/names are not predictors of votes, and NIMSP (National Institute for Money in State Politics) features come from state-level sources. Ideological scores, though interesting, will not affect a candidate's probability of winning, and the metadata included in {\tt candDB\_house} was not useful for me. I kept the variables specified in Section 4 and dropped all others within {\tt candDB\_house}. 
+
+Next, I examined the contributions table, where most variables were descriptive (last name, first name, occupation, and so forth). Geographic (such as longitude and latitude) and financial (such as memos and transaction IDs) features were included, but those were unnecessary for my analysis. Therefore, I only kept the nine variables I described in Section 4 and dropped all others within {\tt contribDB\_house}.
+
+Finally, I explored the donor/contributor table. All variables here were either related to specific donors or already contained in one of the previous tables. Because I found none of these variables relevant for my use, I dropped the entired table {\tt donorDB\_house}.
+
+\subsubsection*{\tt cleaning\_nulls.py}
+
+Having filtered for the most important observations and variables, I next worked with the {\tt dime\_house\_clean.duckdb} database, cleaning the data further. For both the candidate and contributions table, I explored the types of each variable and the number of unique values.
+
+Before proceeding with the cleaning process, I joined both tables on their matching values. {\tt candDB\_house} contained about 23,379 rows while {\tt contribDB\_house} contained about 98 million rows. Naturally, the joined table {\tt house\_joined} consisted of approximately 98 million observations. 
+
+To bring down the amount of data I worked with, I observed the null count within each column. However, just because a value is null does not necessarily mean it should be removed; I took care with what I eliminated. Unsurprisingly, {\tt election\_type} defines the election type (general, primary, and so on). From here, I decided to work only with general elections, removing all else. Moreover, 13,933,493 observations remained after removing the null values within this column.
+
+Next, I focused on my dependent variables {\tt gwinner} and {\tt gen\_vote\_pct}; getting rid of those nulls left me with 9,447,843 rows. The number of {\tt transaction\_type}, {\tt district\_pres\_vs}, and {\tt contributor\_type} nulls were all relatively small, leaving me with 9,430,440 observations. Finally, the null {\tt is\_corp} values were representative of whether or not a committee was a corporate entity or q trade organization. Eliminating these observations would have rendered this variable meaningless; thus, I converted all null values to 0 and the value {\tt corp} to 1.
+
+\subsubsection*{\tt conversion.py}
+
+In this script, I created my final database {\tt dime\_house\_clean.duckdb}, converting everything to numeric values to that they could be utilized in the modeling processes.
+
+To start, I adjusted for inflation. Using Consumer Price Index data from the Bureau of Labor Statistics, I created a table containing CPI-based deflators with 2024 as the base year. By joining the deflator table {\tt deflator\_to\_2024} on to house table and multiplying every dollar column by {\tt deflator\_to\_2024}, all monetary variables were converted to 2024 dollars.
+
+Next, I computed a new variable {\tt days\_before}, representing the number of days before an election that a contribution was given. Considering general elections typically fall on the first Tuesday after the first Monday in November, I ``found'' this date for each election cycle and calculated how many days fell between Election Day and the day one donated funds.
+
+With this, I removed/encoded/transformed the remaining columns. Because I only worked with general elections, {\tt election\_type} was dropped. Original monetary value columns were dropped due to deflation, and {\tt date} was dropped due to {\tt days\_before}. {\tt district} was also dropped; while district-level heterogeneity is important to capture, the district variable itself introduces too much cardinality to be useful. Alternatively, Jacobson used a continuous partisanship measure to control for how Democratic or Republican a district is without needing over 400 dummy columns. Similarly, I retained {\tt district\_pres\_vs} to account for this.  
+
+{\tt contributor\_type} measures whether the contributor was an individual versus a committee/organization, so I mapped individual to 0 and all else to 1. {\tt ico\_status} was transformed using one-hot encoding. {\tt transaction\_type} would have resulted in 51 dummy variables, so I utilized frequency encoding to reduce this. Lastly, for {\tt gwinner}, measuring whether a candidate won or lost, I converted winning observations to 1 and losing observations to 0.
+
+The raw {\tt transaction\_type} column and deflator column were both removed, resulting in a {\tt house} table ready for aggregation and modeling.
+
+\subsubsection*{\tt aggregation.py}
+
+In this script, I connected to the pre-cleaned database {\tt dime\_house\_cleaner.duckdb} containing the {\tt house} table. As described in Section 5, I defined a set of ``cutoffs'' (look-back periods) in days before Election Day.
+
+For each cutoff, I sliced the data to only include contributions made up to that point. Next, I aggregated summary statistics per candidate $\times$ cycle, including counts, average frequencies, sums of dollars by source, campaign totals, party and outcome flags. The resulting aggregations were written to Parquet files for fast downstream loading and reproducibility.
+
+This script involves a time-series of fundrasing ``snapshots'' at multiple pre-election milestones --- ideal for modeling how fundraising patterns relate to electoral outcomes. 
+
+\subsubsection*{\tt model\_logistic.py}
+
+I begin by importing {\tt os}, {\tt numpy}, and {\tt pandas}, along with {\tt scikit-learn} modules for logistic regression, model evaluation, data splitting, scaling, and pipelines, as well as {\tt Matplotlib} for plotting. Then, I pull the data from the previously generated Parquet files and re-use the same list of cutoff days that define how far in advance of each election the fundraising snapshot was taken. Before diving into the loop, I prepared empty Python lists to collect performance metrics, regression coefficients, per-type derivatives, and elasticities. I also initialized a figure for overlaying multiple ROC curves.
+
+Inside the loop, for each cutoff $X$ (where $X \in \{360, 240, 120, 60, 30, 14, 7, 1 \}$), I read the corresponding Parquet file into a DataFrame, selected a handful of features --- transaction counts and frequencies, logged money variables (individual, committee, and corporate contributions), plus campaign covariates like number of givers, independent expenditure support/opposition, presidential margin, and party/incumbency flags --- and designated the binary {\tt won\_general} as the target. The three money features were log-transformed via {\tt np.log1p} to stabilize their distribution. Data was split 75:25 into training and testing sets with stratification on the outcome. A pipeline standardized the features and fit an L2-penalized logistic regression (with a large $C$ to approximate unpenalized estimates) using the {\tt lbfgs} solver.
+
+Once trained, the model predicted both class labels and probabilities on the test set. I computed and printed the ROC AUC, overall accuracy, recalls for both positive and negative classes, the full confusion matrix, and a classification report. I then extracted the three coefficients on the logged money features from the fitted model, summed them to get a ``total ROI $\beta$,'' and printed both the $\beta$ and its odds ratio ($exp \beta$), as well as the individual $\beta$ and OR for each money type. To translate this into an economic interpretation, I calculated a point-estimate elasticity by multiplying the total $\beta$ by the ratio of average fundraising to average win probability. That elasticity was then printed and stored. Meanwhile, I added the ROC curve for this cutoff to the common plot, labeling each curve with its AUC.
+
+After cycling through all cutoffs, the plot was finalized and saved as a PDF. Finally, I constructed five summary tables as pandas DataFrames (performance metrics, total ROI $\beta$ and OR, per-type ROI $\beta$ and OR, raw elasticities, and normalized elasticities), writing each to LaTeX files.
+
+\subsubsection*{\tt model\_logisticGAM.py}
+
+The workflow in this script parallels the pure-logistic script but replaces the linear model with a semiparametric generalized additive model to capture potential nonlinearities in how campaign features predict electoral sucess. After importing necessary libraries --- including {\tt pygam} for GAMs, {\tt sklearn} utilities for data handling and metrics, and {\tt Matplotlib} for plotting --- I use the same list of cutoffs and Parquet files utilized before. Empty Python lists were initialized to store AUCs, accuracies, recalls, ROI coefficients, per-type derivatives, baseline probabilities, and elasticities, and a figure was prepared for superimposing ROC curves.
+
+For each cutoff $X$, I read in the appropriate files, logged the three fundraising variables with {\tt log1p}, and assembled a feature matrix splitting continuous covariates (transaction counts/frequencies, the logged money variables, number of givers, independent expenditure support/opposition, presidential margin) from categorical flags. Everything was standardized via a {\tt StandardScaler}, then randomly stratified into training and test sets. GAM terms were constructed by combining ten-knots spline terms for each continuous feature and factor terms for each categorical indicator; I fit the resulting model using a coarse grid search for smoothness parameters with up to 10,000 iterations.
+
+Once trained, probabilities and class predictions on the test data yielded standard metrics --- AUC, accuracy, recall for both classes, a confusion matrix, and a classification report --- which were printed and stored. To quantify a ROI analog, I computed finite-difference derivatives of the predicted win probability with respect to each logged money variable, evaluated at the mean feature vector. I averaged these partial effects (weighted by each money type's share of average fundraising) to obtain an overall change in win probability per unit dollar change; transforming this via the logistic link function resulted in a total ROI $\beta$ (with its odd ratio), and each component $\beta$ was similarly derived. I then computed elasticity by scaling the total $\beta$ by the ratio of mean fundraising to mean win probabilities. All these values were printed and appended to lists. Just as before, I overlaid on an ongoing plot the ROC curve for each cutoff.
+
+Finally, I collated the results into five LaTeX tables, the same as in the MLE logistic process.
+
+\subsubsection*{\tt model\_linear.py}
+
+I began by importing both classical and penalized regression tools --- {\tt statsmodels} for least-squares inferences and {\tt scikit-learn}'s {\tt LinearRegression}, {\tt RidgeCV}, and {\tt LassoCV} --- alongside utilities for splitting data, scaling features, cross-validation, performance metrics, and plotting. Pointing to the same directory of Parquet snapshots at cutoffs 360, 240, 120, 60, 30, 14, 7, and 1 day(s) before each election, I initialized lists to collect elasticities, total ROI coefficients, marginal $\Delta$ per \$1M, test-set and cross-validated $R^2$, RMSE, and MAE, as well as lists specifying which regularized model wins (Ridge or LASSO), its chosen $\alpha$, and its out-of-sample $R^2$. I also prepared structures to track standardized feature importances over time for key predictors and to record least-square $p$-values for every base feature.
+
+For each cutoff, I loaded in the appropriate Parquet file, constructed a feature matrix, log-transformed the three fundraising columns, and set the Democratic two-party vote share {\tt gen\_vote\_pct} as the continuous target. Next, I performed a 75:25 train-test split and fit a simple pipeline (standard scaler $+$ OLS) on the training data. I then printed each model's test $R^2$, RMSE, MAE, and 5-fold cross-valited $R^2$ on the full dataset. To understand statistical significance, I ran a {\tt statsmodel} ordinary least-squares model on the training set, yielding coefficient estimates, standard errors, and $p$-values; from this, I extracted and printed the top five standardized coefficients (absolute value) and stored these importances and $p$-values for later.
+
+Following this, I computed a total ROI $\beta$ by summing the three coefficients on individual, committee, and corporate fundraising (back-transformed to ``pp per \$1M''), and printed it. I then estimated the marginal change in vote share at the average fundraising mix by slightly bumping each log-transformed column according to its share of total spend, predicting before/after vote share, and taking the difference. Elasticity involved multiplying $\beta$ by the ratio of mean fundraising to mean vote share.
+
+To guard against overfitting and potentially improve predictive power, I retrained on the full feature set two penalized models --- RidgeCV and LassoCV --- each with a logarithmically spaced $\alpha$ grid and 5-fold cross-validation. I compared the test $R^2$s on a fresh 75:25 split; selected the stronger model; recorded its name, optimal $\alpha$, and out-of-sample $R^2$; and printed its top five standardized coefficients.
+
+After looping through all cutoffs, I normalized and printed the elasticities to show relative importance across time. I then generated two diagnostic figures: a log-scale line plot of each tracked feature's absolute standardized coefficient versus days before the election (to visualize how predictor importance evolves), and a grayscale heatmap of least-squares $p$-values for each feature across cutoffs (highlighting statistical significance trends).
+
+Finally, I wrote four LaTeX tables regarding ROI versus marginal $\Delta$, performance metrics, best regularized model and $R^2$, and elasticities.
+
+\subsubsection*{\tt model\_linearGAM.py}
+
+For the final models, I implemented a semiparametric regression to predict two-party vote share as a smooth function of campaign metrics, using GAMs. Beginning by importing standard libraries such as {\tt numpy} and {\tt pandas}, {\tt pygam} for splines and factor terms, {\tt scikit-learn} utilities for scaling and data splitting and {\tt Matplotlib} for plotting, I followed a similar process as what I did previously. After establishing the pre-election cutoffs, I initialized lists to collect cross-validation and hold-out performance metrics, finite-difference estimates of the marginal change in vote share per \$1M (``$\Delta$ pp per \$1M), and elasticities. I defined a logarithmic grid of smoothing penalties and eight spline basis functions, along with a repeated $k$-fold scheme for robust tuning.
+
+For each cutoff $X$, I loaded the aggregated DataFrame, log-transformed the three fundraising variables, and constructed feature lists: continuous covariates and categorical indicators. After standardizing all predictors, I built a GAM formula combining spline terms for each continuous feature with factor terms for each category. Using repeated $k$-fold cross-validation, I grid-searched over the smoothing penalty grid for each fold, fit a {\tt LinearGAM}, and recorded mean and standard deviation of out-of-sample $R^2$, RMSE, and MAE across folds. I then re-fit the optimally smoothed GAM on a held-out 25 percent test split, reported its hold-out metrics, and computed finite-difference derivatives of the GAM's prediction at the mean predictor vector for each money variable. By weighting these derivatives according to each fundraising source's share of average spending, I obtained a single marginal $\Delta$ pp per \$1M and, from there, an elasticity normalized by the mean vote share.
+
+After processing every cutoff, I wrote three LaTeX tables --- cross-validated performance plus $\Delta$, hold-out metrics, and elasticities. The result is a fully automated pipeline that delivers both nonlinear model performance diagnostics and economic-interpretation metrics for how incremental fundraising at different horizons translates into expected changes in vote share.

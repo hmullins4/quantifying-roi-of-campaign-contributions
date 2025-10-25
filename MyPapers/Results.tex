@@ -1,0 +1,92 @@
+\section*{6 Estimation \& Results}
+
+\subsection*{6.1 Logistic Regression: Win Probability}
+
+In Table~\ref{tab:log-roi}, I have collected the total ROI estimates for each cutoff $X$ using logistic regression. In Table~\ref{tab:log-type-roi}, I have collected the by-type ROI estimates (individual, non-corporate committee, and corporate committee effects) in the same manner. Logically, the total ROI estimates are the sums of the individual components (script \texttt{model\_logistic.py}).
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/log_roi.tex}
+	\caption{Logistic Regression Total ROI Estimates}
+	\label{tab:log-roi}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/log_type_roi.tex}
+	\caption{Logistic Regression By-Type ROI Estimates}
+	\label{tab:log-type-roi}
+\end{table}
+
+In addition to observing the ROI results for particular cutoff dates, I re-aggregated the data and re-looped through a range of dates (365 days before the election up to the day before) to visualize how the return changed over time (script \texttt{roi\_over\_time\_visual.py}). Figure~\ref{fig:roi-year} depicts the estimated ROI versus days before the election.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/roi_over_time.pdf}
+	\caption{Total Return on Investment Trend over One Year Before Election Day}
+	\label{fig:roi-year}
+\end{figure}
+
+Additional tables and plots regarding AUC, accuracy, recall, receiver operating characteristic (ROC) curves, and the raw estimated ROI $\beta$ (before converting to an interpretable odds-ratio) are collected in Appendix C.
+
+\subsection*{6.2 Logistic GAM: Win Probability}
+
+Table~\ref{tab:gam-log-roi} summarizes the total ROI estimates for each cutoff $X$ using logistic generalized additive models, and Table~\ref{tab:gam-log-type-roi} shows the by-type ROI estimates in the same manner (\texttt{model\_logisticGAM}). 
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/log_gam_roi.tex}
+	\caption{GAM Logistic Regression Total ROI Estimates}
+	\label{tab:gam-log-roi}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\input{../Tables/log_gam_type_roi.tex}
+	\caption{GAM Logistic Regression By-Type ROI Estimates}
+	\label{tab:gam-log-type-roi}
+\end{table}
+
+Additional metrics, a plot of the ROC curves under this model, and a 365 day trend of the ROI are collected in Appendix C. 
+
+\subsection*{6.3 OLS Regression: Vote Share}
+
+In Table~\ref{tab:lin-roi}, I have collected two ways of expressing estimates of ROI based on least-squares estimates focusing on \$1 million increases in fundraising, the first being the total ROI $\beta$ (the approximation of the change in vote-share percentage points (pp) on the log-scale of dollars), and the latter being the actual marginal effect on vote share (\texttt{model\_linear.py}).
+
+\begin{table}[!t]
+	\centering
+	\input{../Tables/lin_roi.tex}
+	\caption{Linear Regression Raw and Direct ROI}
+	\label{tab:lin-roi}
+\end{table}
+
+Figure~\ref{fig:feat-importance} depicts the feature importance paths --- absolute standardized coefficents --- for key predictors across cutoffs, while Figure~\ref{fig:heatmap} depicts the heatmap of least-squares $p$-values for selected predictors:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/feat_imp.pdf}
+	\caption{Feature Importance Paths across Cutoffs, Logarithmic Scale}
+	\label{fig:feat-importance}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/sig_heatmap.pdf}
+	\caption{Least-Squares $p$-value Heatmap for Key Predictors across Cutoffs}
+	\label{fig:heatmap}
+\end{figure}
+
+Additional information concerning out-of-sample performance metrics ($R^2$, RMSE, MAE), 5-fold CV $R^2$, and regularized $R^2$, and the $\alpha$ used given the better regularization technique (Ridge or LASSO) are collected in Appendix C. 
+
+\subsection*{6.4 Linear GAM: Vote Share}
+
+In Table~\ref{tab:gam-lin-metrics}, I collect the repeated-$k$-fold CV metrics, as well as the GAM ROI-$\Delta$ vote-share (pp) per \$1 million total at the sample-mean mix (\texttt{model\_linearGAM.py}).
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/lin_gam_cv.tex}
+	\caption{Linear GAM Cross-Validated Performance by Cutoff}
+	\label{tab:gam-lin-metrics}
+\end{table}
+
+A supplemental table detailing the hold-out performance at each cutoff is collected in Appendix C.

@@ -1,0 +1,104 @@
+\section*{IX Conclusion}
+
+In this paper, I offer a comprehensive, multi‑model assessment of how the timing of U.S.\ House campaign contributions affects marginal win probabilities and vote share. By comparing four modeling approaches --- logistic regression, logistic GAMs, least-squares, and linear GAMs —-- across eight pre‑election snapshots, I have shown the following:
+
+\begin{enumerate}
+	\item \textbf{Early‐cycle contributions} ($\geq$ 240 days out) exhibit negligible or even negative marg\-inal associations with both win probability and vote share, likely reflecting the confounding influence of candidate quality and district partisanship.
+	\item \textbf{Mid‐ to late‐cycle contributions} (120–14 days out) yield the strongest positive returns, with individual donations outperforming committee funds. 
+	\item \textbf{Very last‐minute spending} (seven to one days out) continues to boost win odds on the logit scale but shows signs of saturation on the linear vote‑share scale, consistent with diminishing marginal returns.
+	\item \textbf{GAMs uncover non-monotonic patterns} that linear models miss —-- namely local dips and plateaus in ROI, highlighting the strategic value of timing in campaign finance. 
+\end{enumerate}
+
+These findings offer actionable benchmarks for donors who must allocate finite resources across the calendar. More broadly, they underscore that the effectiveness of campaign spending is both \emph{time‑sensitive} and \emph{context‑dependent}, in line with theoretical expectations from political–economy and persuasion models.
+
+In light of this, consider the following example. A donor must decide how to allocate a finite advertising budget over the course of the pre-election period, aiming to maximize the probability of his or her chosen candidate's victory in a congressional race. Contributions can be made on any day before the election, but their effectiveness varies by timing, as estimated from historical data using any of the above models. Let $t \in \{1,2, \cdots, 365 \}$ index the days before the election, and the decision variable $b_t$ represent the amount of spending allocated on day $t$. To maximize the candidate's predicted win probability, given a logistic model:
+
+\[ \underset{\{b_t \geq 0 \}}{\max} \Lambda^{-1} \Big[ \alpha + \sum\limits_t \beta_t \log(1 + b_t) \Big] \]
+
+\noindent where $\Lambda(\cdot)$ is the logistic function and $\beta_t$ is the empirically estimated ROI coefficient for spending on day $t$, obtained from (for this example) the GAM logistic model. $\alpha$ captures the baseline win odds given other control effects, such as incumbency, political party, etc. The budget constraint is naturally expressed as $\sum\limits_t b_t \leq B$, where $B$ is the total available budget, and this spending must be non-negative for all $t$. 
+
+Having estimated the ROI coefficients for each day ($t = 1, \ldots, 365$) using the logit GAM, a donor should allocate her budget proportionally to those coefficients (as a higher return on investment means a higher marginal benefit). Solving the full nonlinear optimization problem, where the win probability is the logistic function shown above, reveals the optimal spend for each cutoff day. The first-order condition suggests spending should equalize the marginal contribution to the log-odds of victory across days, adjusted for diminishing returns:
+
+
+\[ \dfrac{\partial}{\partial b_t} \Lambda^{-1} \Big[ \cdots \Big] \propto \dfrac{\beta_t}{1 + b_t} \]
+
+From this, a higher $\beta_t$ (higher ROI) and lower $b_t$ (less spending in period $t$ before adding an additional dollar) will favor more allocation to that time period. Considering the ROI $\beta$s for this model are constants over the $365$ day period, changing the budget and $\alpha$ parameter will not change which days are most beneficial to spend on, but they do change, respectively, how much should be allocated each day and the maximum probability of winning a candidate will experience (given the baseline probability he or she is starting with). Ultimately, coinciding with Figure~\ref{fig:gam-or}, a donor should focus largest spends approximately three to six weeks before Election Day; earlier and much later spending is less efficient per these ROI estimates. Under uncertainty, a robust allocation (using a lower-bound $\beta_t$) would further favor that same window, but more conservatively. 
+
+Now, throughout this paper, I have documented how campaign contributions to U.S.\ House candidates accumulate over time and how relative fundraising advantages appear to correlate with electoral outcomes. To deepen our theoretical understanding of these patterns, one can recase the fundraising ``race'' as a two-player strategic contest. Below, I outline the key ingredients of such a model:
+
+Consider two players: candidate A's campaign (the incumbent or challenger on one side) and candidate B's campaign (the opposing side). Each campaign acts as a profit-maximizing agent seeking to maximize its net expected payoff from victory minus fundraising costs.
+
+Campaigns choose how much to raise (and equivalently to spend) over the pre-election horizon. Two formulations are common:
+
+\begin{enumerate}
+	\item Static (one-shot) model --- Each player selects a total fundraising level
+		\[ b_i \geq 0, \hspace{1em} i \in \{A, B\}, \]
+		representing all contributions collected by election day.
+	\item Dynamic (multi-period) model --- The horizon is divided into $T$ discrete time windows (for example, 360 days, 240 days, $\ldots$, 1 day before Election Day). In each period $t$, campaign $i$ chooses
+		\[ b_{i,t} \geq 0, \]
+		subject to an overall fundraising budget
+		\[ \sum\limits_{t=1}^T b_{i,t} \leq B_i. \]
+\end{enumerate}
+
+\noindent In both cases, $\mathbf{b}_i$ (or $b_i$) is publicly observed by the opponent (or inferred through disclosure).
+
+The probability that A wins the election is modeled as a monotonic function of the two sides' ``effort'' (funds raised). A standard choice is the Tullock contest success function (CSF), a simple and widely used way to model how players' ``efforts'' (or expenditures) translate into their probability of winning a contest or obtaining a prize \cite{tullock1980}. Introduced by Gordon Tullock, the Tullock CSF is often applied in the context of rent-seeking, but it also easily maps spending into probabilities of winning seats in political competition:
+
+\[ p_A (b_A, b_B) = \dfrac{b_A^\alpha}{b_A^\alpha + b_B^\alpha}, \hspace{1em} p_B = 1 - p_A, \]
+
+\noindent where $\alpha > 0$ captures effectiveness of funds ($\alpha = 1$ is proportional effect, $\alpha < 1$ exhibits diminishing returns, and $\alpha > 1$ exhibits increasing returns). In a dynamic model, one can define an \textit{interim} CSF after period t: 
+
+\[ p_{A,t} = \dfrac{\Bigg(\sum\limits_{s=1}^t b_{A,s} \Bigg)^\alpha}{\Bigg(\sum\limits_{s=1}^t b_{A,s} \Bigg)^\alpha + \Bigg(\sum\limits_{s=1}^t b_{B_,s} \Bigg)^\alpha}, \]
+
+\noindent with $p_{A,T}$ as the final win probability.
+
+Each player weights the value of winning against the cost of raising funds. For campaign $i \in \{A, B \}$, denote by $V_i =$ the value of winning the seat (could differ by incumbency, seat prestige, and so forth) and by $c_i (b) =$ the cost of raising $b$ dollars where $c_i^{''} (b) > 0$, that is, $c(\cdot)$ is convex.
+
+\noindent Then the static payoff is
+
+\[ U_i (b_i, b_j) = p_i (b_i, b_j) V_i - c_i (b_i). \]
+
+\noindent In the dynamic setting, one can write
+
+\[ U_i ( \{b_{i,t} \}, \{b_{j,t} \}) = p_{i,T} V_i - \sum\limits_{t=1}^T c_i (b_{i,t}). \]
+
+Commonly, $c_i (b) = k_i b + \dfrac{1}{2} \lambda_i b^2$, with $k_i, \lambda_i > 0$, so that raising additional dollars becomes progressively more expensive.
+
+A pure-strategy, Nash equilibrium consists of fundraising decisions for all campaigns where no single campaign can gain by unilaterally altering its decision:
+
+\[ b_i^* = \text{arg} \underset{b_i \geq 0}{\max} \Big\{ p_i (b_i, b_j^*) V_i - c_i (b_i) \Big\}, \hspace{1em} i \in \{A, B \}. \]
+
+Under $\alpha > 0$ and strictly convex cost functions $c_i$, the best response curves cross exactly once, yielding a unique interior Nash equilibrium \cite{bayes}. Closed-form solutions arise in special cases (for example, linear costs, $\alpha = 1$):
+
+\[ b_i^* = \dfrac{V_i}{2 \lambda_i} - \dfrac{k_i}{2 \lambda_i} + \text{terms depending on } V_j, k_j, \lambda_j. \]
+
+\noindent Once ($b_A^*, b_B^*$) is characterized, one can derive the following:
+
+\begin{enumerate}
+	\item A larger $V_i$ implies  more aggressive fundraising.
+	\item The higher is $\alpha$ the greater are the returns to additional dollars.
+	\item The higher the marginal cost the lower are fund-raising levels.
+	\item Asymmetries (incumbency, baseline name recognition) can be modeled via a ``starter-kit'' endowment $b_{i,0} > 0$.
+\end{enumerate}
+
+These comparative static results illustrate, for example, why open-seat contests or expensive districts see more extreme fundraising arms races. To capture the temporal profile of fundraising (as in my cutoff analysis at 360 days, 240 days, and so forth), the model extends naturally to a $T$-period game:
+
+\begin{enumerate}
+	\item Simultaneous moves: At each $t = 1, \cdots, T$, campaigns choose $b_{i,t}$.
+	\item Cumulative CSF: Interim win probability updates each period.
+	\item Budget constraint: $\sum\limits_{t=1}^T b_{i,t} \leq B_i$.
+	\item Solution method: Either open-loop control (treating the full vector $\{b_{i,t} \}$ as decision variables) or closed-loop (dynamic programming with state variables $\sum\limits_{s=1}^{t-1} b_{i,s}$).
+\end{enumerate}
+
+Optimal paths $\{b_{i,t}^* \}$ can reveal, for instance, whether it is optimal to front-load spend early to ``lock in'' momentum or to reserve funds for a final surge.
+
+I have intentionally kept this framework abstract so that future researchers can estimate $\alpha$ and cost-function parameters using DIME data and election outcomes; numerical root-finding or equilibrium-solving routines may be utilized (should closed-form fail for complex cost structures); the multi-period game may be solved via dynamic programming or optimal control techniques; and stochastic shocks (for example, major outside fundraising events), informational asymmetries (private signal models), or multiple donor types (fractional contributions) may be incorporated in as robustness extensions. Such empirical and computational steps lie outside the scope of the present paper but represent a rich avenue for deepening our understanding of competitive fundraising dynamics. By embedding the fundraising context in this game-theoretic scaffold, I both clarify the strategic logic behind observed contribution trajectories and lay out a roadmap for rigorous estimation and simulation in future studies.
+
+Naturally, some limitations associated with the above game-theoretic model exist. To start, in practice, FEC disclosures lag and contributions arrive in lumps. This can undermine the open-loop versus closed-loop solution concept --- if a campaign can not react in real time to the opponent's choices, the equilibrium notion should be Bayes-Nash with incomplete information, not a straightforward Nash equilibrium in each subgame.
+
+Moreover, the dynamic payoff mentioned above treats dollars raised equally across all $t$. Yet, in reality, money raised early covers longer ad buys and carries opportunity costs differently than last-minute cash. A discount factor on future payoffs or costs could be introduced, or $c_i$ itself could vary by $t$ to reflect media-market pricing. Continuing with the discussion of money, in many campaigns, fundraising is endogenous and uncapped \textit{ex ante}, with the cost function serving as the only brake. Imposing an exogenous ``budget'' may be motivated by donation fatigue, donor limits, or internal campaign targets, but the ``budget'' constraint, though simplifying the problem, is not necessarily realistic.
+
+
+In conclusion, by quantifying time-varying ROI and embedding it in a clear decision framework, campaigns may determine not just what matters (that is, finances, incumbency, party-district fixed effects, and so forth), but also at what points in time and how much to spend for maximal impact. 
+
+\newpage

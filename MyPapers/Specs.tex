@@ -1,0 +1,46 @@
+\section*{5 Empirical Specifications}
+
+\subsection*{5.1 Data Aggregation and Feature Construction}
+
+\indent Using DuckDB (script \texttt{aggregation.py}), for each cutoff $X$ in $\{360, 240, 120, 60, 30, 14, 7, \allowbreak 1\}$ days before election, I aggregated all contributions with $\texttt{days\_before} \ge X$ into one candidate-cycle record.\footnote{Given my presumption that the marginal ROI across time would not be constant, building models based on where in the campaign a candidate is (timing-wise) is important. Essentially, this script is an automated process allowing the user to choose any cutoff date and generate a model at that cutoff.} For each $X$-day window I selected, I computed: \( \texttt{n\_contribs}_{X}\); \(\texttt{avg\_tx\_freq}_{X}\) (from frequency-encoded \texttt{transaction\_type}); \texttt{district\_pres\_vs}; \\ \(\texttt{indiv\_mill}_{X}\), \(\texttt{comm\_mill}_{X}\), and \(\texttt{corp\_mill}_{X}\) (million-dollar sums of individual, non corporate-committee, and corporate-committee contributions, respectively); \texttt{num\_givers}; \texttt{total\_receipts}; \texttt{ind\_exp\_support}; \texttt{ind\_exp\_oppose}; \texttt{party} dummies; \texttt{ico\_status} dummies; \texttt{incumbent}; and outcome (\texttt{gwinner} or \texttt{gen\_vote\_pct}).
+
+In summary, this script builds snapshot aggregates for particular cutoff periods before the election. For straight logistic and linear regression, the individual, non-corporate committee, and corporate-committee monetary components add up to the total amount a candidate received by that point in time. Therefore, when calculating the ROI from each of these components, total ROI may be calculated by adding the independent effects. Alternatively, in the generalized additive models to follow, total ROI is a weighted combination of the individual marginal effects.
+
+All aggregated tables are written to Parquet for reproducibility.\footnote{Parquet is a columnar storage file format optimized for efficient data processing, particularly in big data environments. I utilized this because I was unsure how large my aggregated data files would end up being.}
+
+\subsection*{5.2 Logistic Regression for Win Probability}
+
+For each cutoff, I fit a logistic regression of the form
+
+\[ \Pr (W_n = 1) = \operatorname{logit}^{-1} \Bigl[ \beta_0 + \sum_{k \in \{\mathrm{indiv}, \mathrm{comm}, \mathrm{corp}\}} \beta_k \log(1 + \mathtt{k\_mill}_X) + \boldsymbol{\beta}_4^\top \mathbf{Z}_n \Bigr], \]
+
+\noindent where $\mathbf{Z}_n$ includes standardized controls: number of contributions, average transaction type frequency, number of givers, independent support spending, independent opposition spending, district-level Democratic presidential vote share, party, and incumbency status.
+
+\indent I trained on a 75 percent stratified random split, standardized via \texttt{StandardScaler}, and fit \texttt{sklearn.LogisticRegression} (L2, $C = 10^6$).\footnote{The parameter C is set to approximate unregularized MLE; many errors arose during pure logistic regression. This choice renders regularization negligible in practice.} Out-of-sample performance is assessed by ROC--AUC, accuracy, and recall. Total return on investment was computed by summing the three spending coefficients (those for individuals, non-corporate committees, and corporate committees) for a \$1 million log-bump at the sample mean and then exponentiating for the odds-ratio (script \texttt{model\_logistic.py}).
+
+\subsection*{5.3 Logistic GAM for Win Probability}
+
+To capture potential nonlinearity, I fit a logistic generalized additive model,
+
+\[ \Pr (W_n = 1 ) = \operatorname{logit}^{-1} \Bigl[\beta_0 + \sum_{j} s_j (X_{nj}) + \sum_{\ell} \gamma_\ell F_{n \ell} \Bigr], \] 
+
+\noindent where $s_j (\cdot)$ are penalized splines on each log-transformed spending and continuous control, and $F_{n \ell}$ are the categorical indicators. Smoothness is selected by grid-search on the training fold; evaluation uses the same 75:25 split and metrics as in the MLE logistic regression. Derivatives calculated at the mean recover a ``GAM-ROI'' log-odds slope for \$1 million (script \texttt{model\_logisticGAM.py}). 
+
+\subsection*{5.4 Ordinary Least Squares Regression for Vote Share}
+
+For each cutoff, vote share $\mathrm{VS}_n$ is modeled as
+
+\[ \mathrm{VS}_n = \alpha_0 + \sum_{k} \alpha_k \log(1 + \texttt{\textit{k}\_mill}_X) + \boldsymbol{\alpha}_4^\top \mathbf{Z}_n + \varepsilon_n, \]
+
+\noindent with the same $\mathbf{Z}_n$ controls as used in both logistic regressions. I fit a least-squares model using \texttt{sklearn.LinearRegression}, as well as report out-of-sample $R^2$, RMSE, MAE, and 5-fold cross-validated $R^2$. To try to improve predictive performance, I also ran Ridge and LASSO regularization over a logarithmic grid of penalty factors (25 alphas from $10^{-3}$ to $10^3$, selecting by CV). For interpretability, I tabulated standardized coefficient magnitudes (absolute values) to rank feature importance and plot their trajectories across cutoffs (on a log scale). Additionally, I produced a heatmap of least-squares $p$-values (for key predictors) to illustrate how statistical significance varies with time.
+
+\subsection*{5.5 Linear GAM for Vote Share}
+
+I fit a linear GAM,
+
+\[ \mathrm{VS}_n = \delta_0 + \sum_{j=1}^p s_j(X_{nj}) + \sum_{\ell=p+1}^K \delta_\ell\, X_{n\ell} + \varepsilon_n, \]
+
+\noindent with penalized splines on each continuous predictor and linear terms for categorical variables (script \texttt{model\_linearGAM.py}). Smoothing penalties ($\lambda \in [10^{-2}, 10^3]$) were selected by repeated $k$-fold CV; out-of-sample $R^2$, RMSE, and MAE are reported. ROI was computed by finite differences on each spending spline at the mean and weighting by the average spending mix, yielding $\Delta \mathrm{VS}$ per \$1 million.
+
+\medskip
+\indent All coding was completed in Python 3.11, using DuckDB for aggregation, \texttt{pandas} and \texttt{numpy} for processing, \texttt{scikit‑learn} for the logistic, OLS, and regularized fits, and \texttt{pygam} for all GAMs. Visualizations are generated with Matplotlib (and Seaborn for the least-squares $p$‑value heatmap).

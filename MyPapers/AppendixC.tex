@@ -1,0 +1,150 @@
+\subsection*{Appendix C}
+
+In Table~\ref{tab:log-metrics}, I collect the out-of-sample performance metrics for each cutoff $X$ using the logistic model.
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/log_metrics.tex}
+	\caption{Logistic Regression Performance by Cutoff}
+	\label{tab:log-metrics}
+\end{table}
+
+In Figure~\ref{fig:log-roc}, I depict the area under the curve achieved by the MLE logistic regression for each cutoff.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/log_roc.pdf}
+	\caption{Logistic Models' AUCs}
+	\label{fig:log-roc}
+\end{figure}
+
+Figure~\ref{fig:roi-beta}, similar to Figure~\ref{fig:roi-year}, simply depicts another way of examining the effect of campaign contributions on the probability of winning over time. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/roi_beta_over_time.pdf}
+	\caption{Total (Raw) Return on Investment Trend a Year Prior to Election Day}
+	\label{fig:roi-beta}
+\end{figure}
+
+Table~\ref{tab:gam-log-metrics} summarizes the GAM fits, showing AUC, accuracy, and recall for each cutoff.
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/log_gam_metrics.tex}
+	\caption{GAM Logistic Performance by Cutoff}
+	\label{tab:gam-log-metrics}
+\end{table}
+
+Figure~\ref{fig:gam-or} depicts the odds-ratio trend over time using the logistic GAM.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/gam_roi_over_time.pdf}
+	\caption {GAM Total (Odds-Ratio) ROI Trend a Year Prior to Election Day}
+	\label{fig:gam-or}
+\end{figure}
+
+Figure~\ref{fig:gam-roc} depicts the AUC achieved by the GAM logistic regression for each cutoff.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{../Figures/gam_log_roc.pdf}
+	\caption{Logistic GAM's AUCs}
+	\label{fig:gam-roc}
+\end{figure}
+
+In Table~\ref{tab:ols-metrics}, I collect out-of-sample performance metrics ($R^2$, RMSE, MAE) and 5-fold CV $R^2$ for each cutoff from the simple least-squares models, while Table~\ref{tab:reg-r2} offers the regularized $R^2$ results and $\alpha$ given the better regularization technique (Ridge or LASSO).
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\input{../Tables/lin_metrics.tex}
+		\caption{Least-Squares Regression Performance by Cutoff}
+		\label{tab:ols-metrics}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\input{../Tables/reg_r2.tex}
+		\caption{Regularized $R^2$ for Each Cutoff}
+		\label{tab:reg-r2}
+	\end{minipage}
+\end{table}
+
+Table~\ref{tab:ho-metrics} reveals the hold-out performance for the linear GAM models.
+
+\begin{table}[H]
+	\centering
+	\input{../Tables/lin_gam_ho.tex}
+	\caption{GAM Linear Hold-Out Performance by Cutoff}
+	\label{tab:ho-metrics}
+\end{table}
+
+Finally, the ROI of campaign contributions might also be expressed as elasticities, a unit-free measure of responsiveness. Raw elasticities measure the percent change in the probability of winning from a one percent increase in campaign contributions at a particular cutoff. Although not demonstrated here (due to the fact that I did not calculate the elasticities for each day across an entire election cycle), total spending over a political campaign may be thought of as a dynamic control/budget constraint problem. If total spending over the campaign is allocated across discrete time windows, it is natural that the sum of those period elasticities equal $1$: a one percent reallocation of total spending among time periods changes total spending by zero, so it cannot change the outcome in first order. Should anyone desire to calculate the ROI over an entire election cycle, this should be the result. 
+
+For the sake of my goals, I calculated the raw elasticities for the arbitrary cutoffs I used throughout my research, as well as for the win-probability models across an entire year of campaigning. Because they are independent snapshots, they will \textit{not} sum to one; these elasticities are partial derivatives at particular time windows, so we do not get a partition of ``total elasticity.'' Furthermore, normalized elasticities tell one the share of total responsiveness that comes from spending at time $X$ (of the entire effect budget, what fraction is due to period $X$?). I also implemented these calculations, allowing one to compare periods directly on a common scale, leaving only the relative pattern over time. Altogether, this gives one another way to understand the ROI of campaign contributions.
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\input{../Tables/log_e.tex}
+		\caption{Raw Elasticities for MLE Logistic}
+		\label{tab:log-elast}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\input{../Tables/log_gam_e.tex}
+		\caption{Raw Elasticities for GAM Logistic}
+		\label{tab:log-gam-elast}
+	\end{minipage}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\input{../Tables/lin_e.tex}
+		\caption{Raw Elasticities for Linear}
+		\label{tab:lin-elast}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\input{../Tables/lin_gam_e.tex}
+		\caption{Raw Elasticities for GAM Linear}
+		\label{tab:lin-gam-elast}
+	\end{minipage}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{../Figures/elasticity_over_time.pdf}
+	\caption{MLE Logistic Model's Raw Elasticities over Time}
+	\label{fig:log-e-time}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{../Figures/norm_elast_over_time.pdf}
+	\caption{MLE Logistic Model's Normalized Elasticities over Time}
+	\label{fig:log-norm-e-time}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{../Figures/gam_elasticity_over_time.pdf}
+	\caption{Logistic GAM's Raw Elasticities over Time}
+	\label{fig:gam-log-e-time}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{../Figures/gam_norm_elast_over_time.pdf}
+	\caption{Logistic GAM's Normalized Elasticities over Time}
+	\label{fig:gam-log-norm-e-time}
+\end{figure}
+
+
+
+\newpage

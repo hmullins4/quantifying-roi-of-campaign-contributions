@@ -1,0 +1,49 @@
+\subsection*{Appendix B}
+
+This section contains descriptions of the variables utilized throughout my entire cleaning/modeling process, as well as descriptions of how those variables were transformed to meet my needs. Descriptions of the original variable names come from the DIME codebook.
+
+\texttt{cycle}: The two-year election cycle during which the contribution was recorded. Cast as INTEGER during null cleaning process.
+
+\texttt{bonica\_rid}: Unique ID assigned to candidates; used to join candidate table with contributions table. Decimals removed to match with \texttt{bonica\_cid}.
+
+\texttt{bonica\_cid}: Unique contributor ID for candidate; used to join contributions table with donor table. Cast as BIGINT during null cleaning process.
+
+\texttt{party}: Party of candidate. Converted to three dummies (representing 'Republican', 'Democrat', or 'Other') during aggregation process.
+
+\texttt{seat}: Office sought. Only used in initial database filtering to retrieve all U.S.\ House elections.
+
+\texttt{ico\_status}: Incumbency status. Converted to dummy variables, but only dummy used was \texttt{is\_incumbent} and renamed \texttt{incumbent}.
+
+\texttt{num\_givers}: Number of distinct donors that gave to the candidate during a specific election cycle.
+
+\texttt{ind\_exp\_support}: Sum total independent expenditures made to support the candidate.
+
+\texttt{ind\_exp\_oppose}: Sum total independent expenditures made to oppose the candidate.
+
+\texttt{gen\_vote\_pct}: FEC reported vote share in general election; continuous dependent variable in linear model and linear generalized additive model.
+
+\texttt{gwinner}: General election outcome; binary dependent variable in logistic model and logistic generalized additive model. Encoded to numeric 1s and 0s. During aggregation process renamed \texttt{won\_general}.
+
+\texttt{district\_pres\_vs}: District-level percentage of the two-party vote share won by the Democratic presidential nominee in the most recent (or concurrent) presidential election. During aggregation process renamed \texttt{pres\_margin}.
+
+\texttt{contributor\_type}: Specifies whether contributor is an individual or a committee/organization. Converted to numeric, and then renamed \texttt{contrib\_type}. 
+
+\texttt{is\_corp}: Specifies whether the contributor is a corporate entity or q trade organization (only applies to committees). NULL if contributor is neither. Converted to 1s and 0s during NULL cleaning process.
+
+\texttt{amount}: Dollar amount of contribution.
+
+\texttt{date}: Transaction date of contribution. Cast to DATE in NULL cleaning process. Removed after used to calculate \texttt{days\_before} variable.
+
+\texttt{election\_type}: Specified whether the election was a primary, general, etc. Removed once database was filtered for only general elections.
+
+\texttt{days\_before}: Number of days before an election that a contribution was received. Calculated by identifying the election date for a given cycle as the first Tuesday after the first Monday of November, then taking the difference between that date and the date a contribution was received.
+
+\texttt{n\_contribs}: Total number of contributions. Calculated during aggregation process by summing the total amount of contributions a candidate received within a particular election cycle.
+
+\texttt{avg\_tx\_freq}: Average transaction type frequency. Calculated using \texttt{tran\-sac\-tion\_type} variable. Initial variable was frequency-encoded during conversion process. The average was taken during the aggregation process to obtain the average transaction type frequency for each candidate in a given cycle.
+
+\texttt{indiv\_mill}: Amount in millions that a candidate received from individual donors. Calculated by taking the proportion of the total amount given to a candidate by individuals.
+
+\texttt{comm\_mill}: Amount in millions that a candidate received from a non-corporate committee. Calculated by taking the proportion of the total amount given to a candidate by non-corporate committees.
+
+\texttt{corp\_mill}: Amount in millions that a candidate received from a corporate committee. Calculated by taking the proportion of the total amount given to a candidate by corporate committees.
